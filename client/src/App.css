@@ -3,6 +3,10 @@
   src: local('PTSansCaptionRegular'), url(./fonts/PT_Sans_Caption/PTSansCaption-Regular.ttf) format('truetype');
 }
 
+body {
+  min-width: 990px;
+}
+
 .Nav {
   background-color: #202121;
   height: 95px;
@@ -18,6 +22,12 @@
   font-family: PT_Sans_Caption;
   font-size: 18px;
 }
+
+
+#navLinks > a:hover {
+  color: #8de4fc;
+}
+
 
 #logo {
   width: 175px;
