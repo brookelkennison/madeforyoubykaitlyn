@@ -8,19 +8,17 @@ import cartIcon from '../assets/cart.png';
 
 const Nav = () => {
     return ( 
-        <Router>
-            <div className="Nav">
-                <img src={logo} id="logo" alt="logo"/>
-                <div id="navLinks">
-                    <Link to="/">Home</Link>
-                    <Link to="/shop">Shop</Link>
-                    <Link to="/about-me">About Me</Link>
-                    <Link to="/contact">Contact</Link>
-                    <Link to="/my-work">My Work</Link>
-                </div>
-                <img src={cartIcon} id="cartIcon" alt="cart"/>
+        <div className="Nav">
+            <img src={logo} id="logo" alt="logo"/>
+            <div id="navLinks">
+                <Link to="/">Home</Link>
+                <Link to="/shop">Shop</Link>
+                <Link to="/about-me">About Me</Link>
+                <Link to="/contact">Contact</Link>
+                <Link to="/my-work">My Work</Link>
             </div>
-        </Router>
+            <img src={cartIcon} id="cartIcon" alt="cart"/>
+        </div>
      );
 }
  

@@ -16,8 +16,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <Router>
+        <Nav />
+        <div id="pages">
           <Switch>
             <Route exact path="/">
               <Home />
@@ -35,6 +36,7 @@ class App extends Component {
               <MyWork />
             </Route>
           </Switch>
+          </div>
         </Router>
       </div>
     );
