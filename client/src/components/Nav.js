@@ -1,15 +1,19 @@
 import React from 'react';
+import logo from '../assets/logo.png';
+import cartIcon from '../assets/cart.png';
 
 const Nav = () => {
     return ( 
-        <div class="Nav">
-            <img src="" alt="logo"></img>
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">About Me</a>
-            <a href="#">Contact</a>
-            <a href="#">My Work</a>
-            <img src="" alt="cart"></img>
+        <div className="Nav">
+            <img src={logo} id="logo" alt="logo"/>
+            <div id="navLinks">
+                <a href="home">Home</a>
+                <a href="shop">Shop</a>
+                <a href="aboutme">About Me</a>
+                <a href="contact">Contact</a>
+                <a href="mywork">My Work</a>
+            </div>
+            <img src={cartIcon} id="cartIcon" alt="cart"/>
         </div>
      );
 }

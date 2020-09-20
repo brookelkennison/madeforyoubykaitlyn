@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Pt_Sans_Caption;
+  src: local('PTSansCaptionRegular'), url(./fonts/PT_Sans_Caption/PTSansCaption-Regular.ttf) format('truetype');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Nav {
+  background-color: #202121;
+  height: 95px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+#navLinks > a {
+  padding: 35px;
+  color: #F5F7F7;
+  text-transform: uppercase;
+  font-family: PT_Sans_Caption;
+  font-size: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#logo {
+  width: 175px;
+  height: 175px;
+  padding-left: 20px;
+  position: relative;
+  bottom: -55px;
+  z-index: 99;
+}
+
+#cartIcon {
+  width: 45px;
+  height: 45px;
+  padding-right: 20px;
+}
+
+a:link {
+  text-decoration: none;
 }
