@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
     Link
   } from "react-router-dom";
 import logo from '../assets/logo.png';
 import cartIcon from '../assets/cart.png';
 
-const Nav = () => {
+function Nav() {
     return ( 
         <div className="Nav">
             <img src={logo} id="logo" alt="logo"/>
