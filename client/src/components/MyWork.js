@@ -1,11 +1,14 @@
 import React from 'react';
+// import ReactDOM from "react-dom";
 
-const MyWork = () => {
-    return ( 
-     <div className="MyWork">
-         <h1>MyWork</h1>
-     </div>
-     );
-}
-
-export default MyWork;
+class MyWork extends React.Component {
+    render() {
+      return (
+    <div>
+        <h1>MyWork</h1>
+    </div>
+      )
+    }
+  }
+  
+ export default MyWork;
