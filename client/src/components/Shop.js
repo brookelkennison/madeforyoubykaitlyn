@@ -1,19 +1,24 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-// function addProduct() {
-//     console.log('hi');
-// };
-
-class Shop extends React.Component {
+class Shop extends Component {
     constructor(props){
         super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleChange.bind(this);
         this.state = {
             productName: '',
             productPrice: 0,
             productImage: '',
+            // products is a test
+            products: []
         }
     };
+    // change this to products
+    componentDidMount() {
+        fetch('/products')
+            .then(res => res.json())
+            .then(products => this.setState({products}))
+    }
     handleChange = (event, inputField) => {
         this.setState({
             [inputField]: event.target.value
@@ -21,6 +26,9 @@ class Shop extends React.Component {
     };
     handleSubmit = event => {
         event.preventDefault();
+        console.log(this.state.productName);
+        const productName = this.state.productName;
+    return <p>{productName}</p>;
     }
     
     render() {
@@ -36,11 +44,14 @@ class Shop extends React.Component {
             <input type="file" name="productImage" accept="image/*" value={this.state.productImage} onChange={event => this.handleChange(event, 'productImage')}/>
             <input type="submit" value="Submit"/>
         </form>
+        <h1>products</h1>
+        {this.state.products.map(product => 
+          <div key={product.id}>{product.productName}</div>
+          )}
     </div>
       )
     }
   }
-
 
   
  export default Shop;

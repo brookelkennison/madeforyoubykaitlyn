@@ -5,10 +5,12 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.json([{
     id: 1,
-    username: 'brooke1'
+    productName: 'test1',
+    productPrice: 15,
   },{
     id: 2,
-    username: 'reid1'
+    productName: 'test2',
+    productPrice: 15,
   }])
 });
 
