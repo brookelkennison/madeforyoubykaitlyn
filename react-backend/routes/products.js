@@ -1,17 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const products = require('../products')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json([{
-    id: 1,
-    productName: 'test1',
-    productPrice: 15,
-  },{
-    id: 2,
-    productName: 'test2',
-    productPrice: 15,
-  }])
+/* GET products */
+router.get('/', function (req, res) {
+    res.json(products)
 });
+
+/* POST products */
+router.post('/', function (req, res) {
+    res.send()
+})
 
 module.exports = router;
