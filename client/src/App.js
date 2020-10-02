@@ -15,7 +15,7 @@ import MyWork from './components/MyWork';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <Router>
         <Nav />
         <div id="pages">
