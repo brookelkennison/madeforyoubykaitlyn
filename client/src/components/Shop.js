@@ -20,27 +20,36 @@ class Shop extends Component {
             .then(products => this.setState({ products }))
     };
     handleChange = (event, inputField) => {
+        console.log('hi')
         this.setState({
             [inputField]: event.target.value
         })
     };
-    handleSubmit = event => {
-        event.preventDefault();
-        console.log(this.state.productName);
-        const productName = this.state.productName;
-        return <p>{productName}</p>;
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log('hi')
+
+        var productName = this.state.productName
+        this.setState(productName)
+        fetch('/products', {
+            method: 'POST',
+            body: {
+                'productName': productName
+            }
+        })
+
     }
 
     render() {
         return (
             <div>
                 <h1>Shop</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <p>Product Name:</p>
+                <form onSubmit={this.handleSubmit} >
+                    <label>Product Name:</label>
                     <input type="text" name="productName" value={this.state.productName} onChange={event => this.handleChange(event, 'productName')} />
-                    <p>Product Price:</p>
-            $<input type="number" name="productPrice" value={this.state.productPrice} onChange={event => this.handleChange(event, 'productPrice')} />
-                    <p>Product Image:</p>
+                    <label>Product Price:</label>
+                    $<input type="number" name="productPrice" value={this.state.productPrice} onChange={event => this.handleChange(event, 'productPrice')} />
+                    <label>Product Image:</label>
                     <input type="file" name="productImage" accept="image/*" value={this.state.productImage} onChange={event => this.handleChange(event, 'productImage')} />
                     <input type="submit" value="Submit" />
                 </form>
