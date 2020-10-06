@@ -4,12 +4,19 @@ const products = require('../products')
 
 /* GET products */
 router.get('/', function (req, res) {
-    res.json(products)
+    res.send(products)
 });
 
-/* POST products */
-router.post('/', function (req, res) {
-    res.send()
+router.get('/:id', function (req, res) {
+    res.send('Product id = ' + req.params.id);
 })
+
+
+
+
+/* POST products */
+// router.post('/', function (req, res) {
+//     res.send('POST request to the homepage')
+//   })
 
 module.exports = router;
