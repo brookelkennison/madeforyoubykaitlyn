@@ -11,7 +11,7 @@
 #### Express:
 - cd react-backend
 - npm i
-- PORT=3001 node bin/www
+- PORT=3001 node bin/server.js
 
 ### Technologies:
 - React.js
