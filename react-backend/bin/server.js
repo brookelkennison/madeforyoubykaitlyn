@@ -17,9 +17,17 @@ async function main () {
     } catch (e) {
         console.error(e);
     }
-    finally {
-      await client.close();
+    async function createProduct(client, newProduct){
+      const result = await client.db("shop").collection("products").insertOne(newProduct);
+      console.log(`New product created with the following id: ${result.insertedId}`);
     }
+    await createProduct(client,
+      {
+          productName: "test3",
+          productPrice: 5,
+      }
+    )
+
 }
 
 
@@ -29,6 +37,7 @@ async function listDatabases(client){
   console.log("Databases:");
   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
 };
+
 
 main().catch(console.error);
 /**
