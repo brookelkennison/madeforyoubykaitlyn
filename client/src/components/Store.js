@@ -56,7 +56,7 @@ class Store extends Component {
                     <input type="submit" value="Submit" />
                 </form>
                 <h1>Products</h1>
-                {this.state.product.map(product =>
+                {this.state.products.map(product =>
                     <div key={product._id}>
                         <h2>{product.productName}</h2>
                         <p>${product.productPrice}.00</p>

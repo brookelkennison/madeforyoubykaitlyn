@@ -28,7 +28,7 @@ router.get('/', function (req, res) {
         //     }
         // })
         // console.log(cursor)
-        res.send(JSON.stringify(doc))
+        res.send(JSON.parse(cursor))
         client.close()
     });
 })
