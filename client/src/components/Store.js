@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-class Shop extends Component {
+
+class Store extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -16,8 +17,9 @@ class Shop extends Component {
     // change this to products
     componentDidMount() {
         fetch('/products')
-            .then(res => res.json())
-            .then(products => this.setState({ products }))
+            .then(res => {this.setState({
+                product: res.product
+            })})
     };
     handleChange = (event, inputField) => {
         console.log('hi')
@@ -43,7 +45,7 @@ class Shop extends Component {
     render() {
         return (
             <div>
-                <h1>Shop</h1>
+                <h1>Store</h1>
                 <form onSubmit={this.handleSubmit} >
                     <label>Product Name:</label>
                     <input type="text" name="productName" value={this.state.productName} onChange={event => this.handleChange(event, 'productName')} />
@@ -54,8 +56,8 @@ class Shop extends Component {
                     <input type="submit" value="Submit" />
                 </form>
                 <h1>Products</h1>
-                {this.state.products.map(product =>
-                    <div key={product.id}>
+                {this.state.product.map(product =>
+                    <div key={product._id}>
                         <h2>{product.productName}</h2>
                         <p>${product.productPrice}.00</p>
                     </div>
@@ -66,4 +68,4 @@ class Shop extends Component {
 }
 
 
-export default Shop;
+export default Store;

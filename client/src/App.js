@@ -7,7 +7,7 @@ import {
 import './App.css';
 import Nav from './components/Nav';
 import Home from './components/Home';
-import Shop from './components/Shop';
+import Store from './components/Store';
 import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
 import MyWork from './components/MyWork';
@@ -23,8 +23,8 @@ class App extends Component {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/shop">
-              <Shop />
+            <Route path="/store">
+              <Store />
             </Route>
             <Route path="/about-me">
               <AboutMe />
