@@ -1,45 +1,8 @@
 #!/usr/bin/env node
-const {MongoClient} = require('mongodb');
 const app = require('../app');
 const debug = require('debug')('react-backend:server');
 const http = require('http');
 
-
-
-async function main () {
-  const uri = "mongodb+srv://kennisonCreative:wOEcOIenerD1kjce@cluster0.rxfn7.mongodb.net/shop?retryWrites=true&w=majority";
-  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  try {
-    await client.connect();
-
-    await listDatabases(client);
- 
-    } catch (e) {
-        console.error(e);
-    }
-    async function createProduct(client, newProduct){
-      const result = await client.db("shop").collection("products").insertOne(newProduct);
-      console.log(`New product created with the following id: ${result.insertedId}`);
-    }
-    await createProduct(client,
-      {
-          productName: "test3",
-          productPrice: 5,
-      }
-    )
-
-}
-
-
-async function listDatabases(client){
-  databasesList = await client.db().admin().listDatabases();
-
-  console.log("Databases:");
-  databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
-
-
-main().catch(console.error);
 /**
  * Get port from environment and store in Express.
  */

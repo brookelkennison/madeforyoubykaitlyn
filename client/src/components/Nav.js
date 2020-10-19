@@ -11,7 +11,7 @@ function Nav() {
             <img src={logo} id="logo" alt="logo"/>
             <div id="navLinks">
                 <Link to="/">Home</Link>
-                <Link to="/shop">Shop</Link>
+                <Link to="/store">Store</Link>
                 <Link to="/about-me">About Me</Link>
                 <Link to="/contact">Contact</Link>
                 <Link to="/my-work">My Work</Link>
