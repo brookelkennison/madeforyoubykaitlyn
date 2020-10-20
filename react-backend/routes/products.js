@@ -3,7 +3,6 @@ var router = express.Router();
 const uri = 'mongodb+srv://kennisonCreative:wOEcOIenerD1kjce@cluster0.rxfn7.mongodb.net/shop?retryWrites=true&w=majority';
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-var str = 'hi'
 
 /* GET products */
 router.get('/', function (req, res) {
@@ -22,13 +21,8 @@ router.get('/', function (req, res) {
         }
 
         cursor.forEach(iterateFunc, errorFunc)
-        // cursor.each(function(err, item) {
-        //     if (item != null) {
-        //         str = 'Product ID: ' + item._id
-        //     }
-        // })
-        // console.log(cursor)
-        res.send(JSON.parse(cursor))
+
+        res.send('send request for products')
         client.close()
     });
 })
