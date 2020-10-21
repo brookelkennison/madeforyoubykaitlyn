@@ -7,21 +7,21 @@ class Store extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleChange.bind(this);
         this.state = {
-            productName: '',
-            productPrice: 0,
-            productImage: '',
-            // products is a test
             products: []
         }
     };
     // change this to products
     componentDidMount() {
         fetch('/products')
-            .then(res => {
-                var product = res.product
-                this.setState(product)
+        .then(res => res.json())
+        .then(
+            (products) => {
+            this.setState(products, () => {
+
             })
-    };
+            },
+        )
+    }
     handleChange = (event, inputField) => {
         console.log('hi')
         this.setState({
@@ -44,6 +44,7 @@ class Store extends Component {
     }
 
     render() {
+        const products = this.state
         return (
             <div>
                 <h1>Store</h1>
@@ -57,14 +58,12 @@ class Store extends Component {
                     <input type="submit" value="Submit" />
                 </form>
                 <h1>Products</h1>
-                { console.log(this.state.products)
-                // this.state.products.map(product =>
-                //     <div key={product._id}>
-                //         <h2>{product.productName}</h2>
-                //         <p>${product.productPrice}.00</p>
-                //     </div>
-                // )
-                }
+                { this.state.products.map(product =>
+                    <div key={product._id}>
+                        <h2>{product.productName}</h2>
+                        <p>${product.productPrice}.00</p>
+                    </div>
+                )}
             </div>
         )
     }

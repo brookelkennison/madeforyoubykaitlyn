@@ -7,22 +7,26 @@ const assert = require('assert');
 /* GET products */
 router.get('/', function (req, res) {
     MongoClient.connect(uri, function (err, client) {
-        assert.equal(null, err);
-        const db = client.db('shop');
-        var cursor = db.collection('products').find({});
+        const db = client.db('shop')
+        db.collection('products').find().toArray(function(err, products) {
+            res.send(products)
+        })
+
+
+
+        // const db = client.db('shop');
+        // var cursor = db.collection('products').find({});
         
-        function iterateFunc(doc) {
-            console.log(JSON.stringify(doc));
-            return JSON.stringify(doc)
-        }
 
-        function errorFunc(error) {
-            console.log(error);
-        }
+        // res.send(JSON.stringify())
+        // console.log(db.collection('products'))
 
-        cursor.forEach(iterateFunc, errorFunc)
+        // function errorFunc(error) {
+        //     console.log(error);
+        // }
 
-        res.send('send request for products')
+
+        
         client.close()
     });
 })
