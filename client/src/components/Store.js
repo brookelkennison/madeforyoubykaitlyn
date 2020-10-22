@@ -10,17 +10,13 @@ class Store extends Component {
             products: []
         }
     };
-    // change this to products
-    componentDidMount() {
+    getProducts = () => {
         fetch('/products')
         .then(res => res.json())
-        .then(
-            (products) => {
-            this.setState(products, () => {
-
-            })
-            },
-        )
+        .then(products => this.setState({products}))
+    }
+    componentDidMount() {
+        this.getProducts()
     }
     handleChange = (event, inputField) => {
         console.log('hi')
@@ -44,7 +40,7 @@ class Store extends Component {
     }
 
     render() {
-        const products = this.state
+        // const products = this.state
         return (
             <div>
                 <h1>Store</h1>
@@ -62,6 +58,7 @@ class Store extends Component {
                     <div key={product._id}>
                         <h2>{product.productName}</h2>
                         <p>${product.productPrice}.00</p>
+                        {/* <img {product.productImage} /> */}
                     </div>
                 )}
             </div>
