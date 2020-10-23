@@ -7,7 +7,10 @@ class Store extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleChange.bind(this);
         this.state = {
-            products: []
+            products: [],
+            productName: '',
+            productPrice: 0,
+            productImage: ''
         }
     };
     getProducts = () => {
@@ -24,17 +27,25 @@ class Store extends Component {
             [inputField]: event.target.value
         })
     };
+    // needs work
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log('hi')
-
-        var productName = this.state.productName
-        this.setState(productName)
+        const payload = {
+            productName: this.state.productName,
+            productPrice: this.state.productPrice,
+            productImage: this.state.productImage,
+        }
         fetch('/products', {
             method: 'POST',
             body: {
-                'productName': productName
+                payload
             }
+        })
+        .then(() => {
+            console.log('Data has been sent to the server')
+        })
+        .catch(() => {
+            console.log('Internal server error')
         })
 
     }
@@ -58,7 +69,14 @@ class Store extends Component {
                     <div key={product._id}>
                         <h2>{product.productName}</h2>
                         <p>${product.productPrice}.00</p>
-                        {/* <img {product.productImage} /> */}
+                        {/* <img href={}/> */}
+                        <button 
+                            className="snipcart-add-item"
+                            data-item-name={product.productName}
+                            data-item-price={product.productPrice}
+                            data-item-id={product._id}
+                            data-item-image={product.productImage}
+                        >Add to Cart</button>
                     </div>
                 )}
             </div>

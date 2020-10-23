@@ -11,24 +11,18 @@ router.get('/products', function (req, res) {
         db.collection('products').find().toArray(function(err, products) {
             res.json(products)
         })
-
-
-
-        // const db = client.db('shop');
-        // var cursor = db.collection('products').find({});
-        
-
-        // res.send(JSON.stringify())
-        // console.log(db.collection('products'))
-
-        // function errorFunc(error) {
-        //     console.log(error);
-        // }
-
-
-        
         client.close()
     });
+})
+
+router.post('/products', function (req, res) {
+    MongoClient.connect(uri, function (err, client) {
+        const db = client.db('shop')
+        db.collection('products').insert(function (err, products) {
+            res.json(products)
+        })
+        client.close() 
+    })
 })
 
 
