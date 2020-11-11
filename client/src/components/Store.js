@@ -12,22 +12,22 @@ class Store extends Component {
             productImage: "",
         };
     }
-    getProducts = () => {
+    getProducts() {
         fetch("/products")
             .then((res) => res.json())
             .then((products) => this.setState({ products }));
-    };
+    }
     componentDidMount() {
         this.getProducts();
     }
-    handleChange = (event, inputField) => {
+    handleChange(event, inputField) {
         console.log("hi");
         this.setState({
             [inputField]: event.target.value,
         });
-    };
+    }
     // needs work
-    handleSubmit = (event) => {
+    handleSubmit(event) {
         // const payload = {
         //     productName: this.productName,
         //     productPrice: this.productPrice,
@@ -47,7 +47,7 @@ class Store extends Component {
         //     });
         event.preventDefault();
         console.log("Handle Submit");
-    };
+    }
 
     render() {
         // const products = this.state
