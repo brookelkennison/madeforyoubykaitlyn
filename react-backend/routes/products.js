@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 /* GET products */
-router.get('/products', function (req, res) {
+router.get('/', function (req, res) {
     MongoClient.connect(uri, function (err, client) {
         const db = client.db('shop')
         db.collection('products').find().toArray(function(err, products) {
@@ -15,7 +15,7 @@ router.get('/products', function (req, res) {
     });
 })
 
-router.post('/products', function (req, res) {
+router.post('/', function (req, res) {
     MongoClient.connect(uri, function (err, client) {
         const db = client.db('shop')
         db.collection('products').insert(function (err, products) {

@@ -21,32 +21,28 @@ class Store extends Component {
         this.getProducts();
     }
     handleChange(event, inputField) {
-        console.log("hi");
         this.setState({
             [inputField]: event.target.value,
         });
     }
     // needs work
     handleSubmit(event) {
-        // const payload = {
-        //     productName: this.productName,
-        //     productPrice: this.productPrice,
-        //     productImage: this.productImage,
-        // };
-        // fetch("/products", {
-        //     method: "POST",
-        //     body: {
-        //         payload,
-        //     },
-        // })
-        //     .then(() => {
-        //         console.log("Data has been sent to the server");
-        //     })
-        //     .catch(() => {
-        //         console.log("Internal server error");
-        //     });
-        event.preventDefault();
-        console.log("Handle Submit");
+        const payload = {
+            productName: this.productName,
+            productPrice: this.productPrice,
+            productImage: this.productImage,
+        };
+        fetch("/products", {
+            method: "post",
+            body: 
+                JSON.stringify(payload)
+        })
+            .then(() => {
+                console.log("Data has been sent to the server");
+            })
+            .catch(() => {
+                console.log("Internal server error");
+            });
     }
 
     render() {
