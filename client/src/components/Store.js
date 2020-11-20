@@ -28,19 +28,19 @@ class Store extends Component {
     // needs work
     handleSubmit(event) {
         const payload = {
-            productName: this.productName,
-            productPrice: this.productPrice,
-            productImage: this.productImage,
-        };
+            'productName': this.state.productName,
+            'productPrice': this.state.productPrice,
+            'productImage': this.state.productImage
+        }
         fetch("/products", {
-            method: "post",
-            body: 
-                JSON.stringify(payload)
-        })
-            .then(() => {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
                 console.log("Data has been sent to the server");
-            })
-            .catch(() => {
+            }).catch(() => {
                 console.log("Internal server error");
             });
     }

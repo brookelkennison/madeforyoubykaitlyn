@@ -21,11 +21,7 @@ router.get("/", function (req, res) {
 router.post("/", function (req, res) {
     MongoClient.connect(uri, function (err, client) {
         const db = client.db("shop");
-        let product = {
-            productName: req.json(products.productName),
-            productPrice: req.json(products.productPrice),
-        };
-        db.collection("products").insertOne(product);
+        db.collection("products").insertOne(req.body);
         client.close();
     });
 });
