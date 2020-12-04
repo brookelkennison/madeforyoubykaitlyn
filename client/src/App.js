@@ -12,14 +12,22 @@ import EditProducts from "./components/EditProducts";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.isEditing = this.isEditing.bind(this)
-        this.state = {editing: false}
+        this.editingProducts = this.editingProducts.bind(this)
+        this.doneEditingProducts = this.doneEditingProducts.bind(this)
+        this.state = {isEditing: false}
     }
-    isEditing() {
-        this.editing = true
+    editingProducts() {
+        this.setState({
+            isEditing: true
+        })
+    }
+    doneEditingProducts() {
+        this.setState({
+            isEditing: false
+        })
     }
     render() {
-        const editing = this.state.editing
+        const isEditing = this.state.isEditing
         return (
             <div className="App">
                 <Router>
@@ -30,8 +38,9 @@ class App extends Component {
                                 <Home />
                             </Route>
                             <Route path="/store">
-                                <button onClick={this.editing = true}>edit</button>
-                                { editing ? <EditProducts editing={this.state.editing}/> : null }
+                                { !isEditing ? <button onClick={this.editingProducts}>edit</button> : null }
+                                { isEditing ? <EditProducts isEditing={this.state.isEditing}/> : null }
+                                { isEditing ? <button onClick={this.doneEditingProducts}>done</button> : null }
                                 <Store />
                             </Route>
                             <Route path="/about-me">
