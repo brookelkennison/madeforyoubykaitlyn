@@ -3,12 +3,12 @@ import React from 'react';
 
 class MyWork extends React.Component {
     render() {
-      return (
-    <div>
-        <h1>MyWork</h1>
-    </div>
-      )
+        return (
+            <div>
+                <h1>MyWork</h1>
+            </div>
+        );
     }
-  }
-  
- export default MyWork;
+}
+
+export default MyWork;

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import ReactDOM from "react-dom";
 
 class EditProducts extends React.Component {
@@ -7,9 +7,9 @@ class EditProducts extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            productName: "",
+            productName: '',
             productPrice: 0,
-            productImage: "",
+            productImage: '',
         };
     }
     handleChange(event, inputField) {
@@ -24,18 +24,18 @@ class EditProducts extends React.Component {
             productPrice: this.state.productPrice,
             productImage: this.state.productImage,
         };
-        fetch("/products", {
-            method: "POST",
+        fetch('/products', {
+            method: 'POST',
             body: JSON.stringify(payload),
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
             },
         })
             .then(() => {
-                console.log("Data has been sent to the server");
+                console.log('Data has been sent to the server');
             })
             .catch(() => {
-                console.log("Internal server error");
+                console.log('Internal server error');
             });
     }
 
@@ -51,7 +51,7 @@ class EditProducts extends React.Component {
                         name="productName"
                         value={this.state.productName}
                         onChange={(event) =>
-                            this.handleChange(event, "productName")
+                            this.handleChange(event, 'productName')
                         }
                     />
                     <label>Product Price:</label>
@@ -61,7 +61,7 @@ class EditProducts extends React.Component {
                         name="productPrice"
                         value={this.state.productPrice}
                         onChange={(event) =>
-                            this.handleChange(event, "productPrice")
+                            this.handleChange(event, 'productPrice')
                         }
                     />
                     <label>Product Image:</label>
@@ -71,7 +71,7 @@ class EditProducts extends React.Component {
                         accept="image/*"
                         value={this.state.productImage}
                         onChange={(event) =>
-                            this.handleChange(event, "productImage")
+                            this.handleChange(event, 'productImage')
                         }
                     />
                     <input type="submit" value="Submit" />

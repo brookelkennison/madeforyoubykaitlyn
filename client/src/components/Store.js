@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Store extends Component {
     constructor(props) {
@@ -8,7 +8,7 @@ class Store extends Component {
         };
     }
     getProducts() {
-        fetch("/products")
+        fetch('/products')
             .then((res) => res.json())
             .then((products) => this.setState({ products }));
     }
@@ -28,8 +28,7 @@ class Store extends Component {
                             data-item-name={product.productName}
                             data-item-price={product.productPrice}
                             data-item-id={product._id}
-                            data-item-image={product.productImage}
-                        >
+                            data-item-image={product.productImage}>
                             Add to Cart
                         </button>
                     </div>
