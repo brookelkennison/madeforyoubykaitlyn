@@ -40,10 +40,9 @@ class EditProducts extends React.Component {
     }
 
     render() {
-        // const products = this.state
+        console.log(this.props)
         return (
             <div>
-                <button>edit</button>
                 <form onSubmit={this.handleSubmit}>
                     <label>Product Name:</label>
                     <input
